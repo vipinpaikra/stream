@@ -1,14 +1,13 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import VideoPlayer from "./VideoPlayer";
 import { useRef } from "react";
 import videojs from "video.js";
+import ReactPlayer from 'react-player'
 
 function App() {
   const playerRef = useRef(null);
-  const videoLink =
-    "http://localhost:8000/uploads/courses/853ec075-4764-4605-a56c-7aec19bae5ad/index.m3u8";
-
+  const videoLink = 'https://storage.googleapis.com/cropway_user_uploaded_files/For%20Cropway%20App/farm_equipments/big-buck.mp4'
   const videoPlayerOptions = {
     controls: true,
     responsive: true,
@@ -16,7 +15,7 @@ function App() {
     sources: [
       {
         src: videoLink,
-        type: "application/x-mpegURL",
+        type: "video/mp4",
       },
     ],
   };
@@ -32,12 +31,12 @@ function App() {
       videojs.log("player will disose");
     });
   };
-
+  const googleDriveVideoUrl = 'https://storage.googleapis.com/cropway_user_uploaded_files/For%20Cropway%20App/farm_equipments/big-buck.mp4';
   return (
     <div>
-      <h1>vidoe player</h1>
-      <VideoPlayer options={videoPlayerOptions} onReady={handlePlayerReady} />
-    </div>
+      <h1>video player</h1>
+      <VideoPlayer options={videoPlayerOptions}onReady={handlePlayerReady} />
+     </div>
   );
 }
 
